@@ -36,3 +36,16 @@ public class RandomGuess2 {
     this.aleatorio = (int) (Math.random()*100+1);
     }
 }
+
+
+
+public class Random {
+    public static void main(String[] args) {
+    
+        RandomGuess2 persona = new RandomGuess2();
+        
+        persona.juego();
+        
+    }
+    
+}
