@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+public class Lottery {
+    public static void main(String[] args) {
+     
+        Scanner keyboard = new Scanner(System.in);
+        
+        boolean playing = true;
+        int money = 1000;
+        
+        final int BETWEEN_A = 1;
+        final int BETWEEN_B = 10;
+        
+        while(playing == true){
+           
+            int wins = 0;
+            String win_output = "";
+            
+            int lottery1 = (int) Math.ceil(Math.random() * BETWEEN_B - Math.random() * BETWEEN_A);   
+            int lottery2 = (int) Math.ceil(Math.random() * BETWEEN_B - Math.random() * BETWEEN_A);       
+            int lottery3 = (int) Math.ceil(Math.random() * BETWEEN_B - Math.random() * BETWEEN_A);
+
+            while(lottery2 == lottery1){
+                lottery2 = (int) Math.ceil(Math.random() * BETWEEN_B - Math.random() * BETWEEN_A);
+            }
+
+            while(lottery3 == lottery1 && lottery3 == lottery2){
+                lottery3 = (int) Math.ceil(Math.random() * BETWEEN_B - Math.random() * BETWEEN_A);
+            }
+            
+            System.out.printf("Ingrese 3 digitos %d, %d: ", BETWEEN_A, BETWEEN_B);
+            int eleccion1 = keyboard.nextInt();
+            int eleccion2 = keyboard.nextInt();
+            int eleccion3 = keyboard.nextInt();
+
+            while(eleccion1 > (BETWEEN_B + 1) || eleccion1 < (BETWEEN_A - 1)){
+                System.out.printf("El primer numero que elegiste es"
+                        + "between %d, %d! Intenta nuevamente: ", BETWEEN_A, BETWEEN_B);
+                eleccion1 = keyboard.nextInt();
+            }
+            while(eleccion2 > (BETWEEN_B + 1) || eleccion2 < (BETWEEN_A - 1)){
+                System.out.printf("El segundo numero elegido es "
+                        + "between %d, %d! Intenta nuevamente: ", BETWEEN_A, BETWEEN_B);
+               eleccion2 = keyboard.nextInt();
+            }
+            while(eleccion3 > (BETWEEN_B + 1) || eleccion3 < (BETWEEN_A - 1)){
+                System.out.printf("El tercer numero elegido es"
+                        + "between %d, %d! Intenta nuevamente: ", BETWEEN_A, BETWEEN_B);
+                eleccion3 = keyboard.nextInt();
+            }
+            
+            if(eleccion1 == lottery1 || eleccion1 == lottery2 || eleccion1 == lottery3){
+                ganar += 1;
+            }
+            if(eleccion2 == lottery1 || eleccion2 == lottery2 || eleccion2 == lottery3){
+                ganar += 1;
+            }
+            if(eleccion3 == lottery1 || eleccion3 == lottery2 || eleccion3 == lottery3){
+                ganar += 1;
+            }
+            if(eleccion1 == lottery1 && eleccion2 == lottery2 && eleccion3 == lottery3){
+                ganar += 1;
+            }
+
+            if(ganar == 4){
+                ganar = "Felicidades! Ganaste $10!";
+                dinero += 10000;
+            }
+            if(ganar == 3){
+                ganar = "Felicidades! Ganaste $100!";
+                dinero += 5000;
+            }
+            if(ganar == 2){
+                ganar = "Felicidades! Ganaste $1000!";
+                dinero += 2000;
+            }
+            if(ganar == 1){
+                ganar = "Felicidades! Ganaste $1000000!";
+                dinero += 1000;
+            }
+            
+        
+            System.out.println("Elegiste " + ganar + " correctamente! Los numeros son " 
+                    + lottery1 + " " + lottery2 + " " + lottery3 + ". " + ganar);
+            
+            if(dinero <= 0){
+                System.out.println("No tienes mas dinero! Perdiste :(");
+                System.exit(0);
+            }
+            
+          
+            }
