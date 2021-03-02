@@ -1,0 +1,38 @@
+public class RandomGuess2 {
+   private Integer aleatorio;
+   private Integer pronostico;
+   
+   Scanner sc = new Scanner(System.in);
+   
+   public void Juego(){
+   
+   
+       setRandom();
+       System.out.println("El numero aleatorio es : "+getRandom());
+       System.out.println("Escribe el nuevo numero: "); 
+       
+       pronostico = sc.nextInt();
+       if (pronostico == getRandom ()) {
+           System.out.println("Correcto");
+       }else{
+           if (pronostico > getRandom()) {
+               System.out.println("ALTO");
+           }else{
+               System.out.println("BAJO");
+           }
+       }
+   } 
+   
+    public Integer getPronostico) {
+    return pronostico
+    }
+    public void setPronostico) {
+    this.pronostico= pronostico
+    }
+    public Integer getRandom {
+    return random
+    }
+    public void setRandom() {
+    this.aleatorio = (int) (Math.random()*100+1);
+    }
+}
